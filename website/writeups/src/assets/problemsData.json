@@ -1,0 +1,77 @@
+[
+  {
+    "number": "1",
+    "question": "ArraySwap(07102022)",
+    "solution": "n = int(input())\r\n\r\narray1 = list(input().split())\r\narray2 = list(input().split())\r\n\r\nfor i in range(0,n):\r\n    if(array1[i]>array2[i]):\r\n        array1[i],array2[i] = array2[i],array1[i]\r\n\r\nfor i in range(0,n):\r\n    print(array1[i],end = \" \")\r\n    \r\nprint()\r\n\r\nfor i in range(0,n):\r\n    print(array2[i],end = \" \")"
+  },
+  {
+    "number": "2",
+    "question": "BeautifulNumber(22112022)",
+    "solution": "n = int(input())\r\n\r\nL = []\r\nif(n in range(1,999999999999999999)):\r\n    def distinct(string):\r\n        dis_str = \"\"\r\n        for i in string:\r\n            if i not in dis_str:\r\n                dis_str += i\r\n        return dis_str\r\n\r\n    for i in range(8,n):\r\n        str_i = str(i)\r\n        if(distinct(str_i)=='89' or distinct(str_i)=='98'):\r\n            L.append(i)\r\n\r\n\r\n    val = False\r\n    for i in L:\r\n        if(n%i==0):\r\n            val = True\r\n    if(val == True):\r\n        print('beautiful')\r\n    else:\r\n        print(-1)"
+  },
+  {
+    "number": "3",
+    "question": "CheckValidity(06102022)",
+    "solution": "def checkValidity(reg_no):\r\n    if (len(reg_no) == 9):\r\n\r\n        L = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']\r\n        str = \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\"\r\n\r\n        Join_Year = reg_no[0:2]\r\n        branch = reg_no[2:5]\r\n        reg = reg_no[5:8]\r\n\r\n        if ((Join_Year[0] in L) and (Join_Year[1] in L)):\r\n            if ((branch.isupper()) and (branch[0]=='B') and (branch[1] in str) and (branch[2] in str)):\r\n                return True\r\n            else:\r\n                return False\r\n        else:\r\n            return False\r\n    else:\r\n        return False\r\n\r\n\r\nregistration_number = input(\"ENTER A REG NUMBER : \")\r\n\r\nif (checkValidity(registration_number)):\r\n    print(\"YES\")\r\n    pass_year = int(\"20\" + str(int(registration_number[0:2]) + 4))\r\n\r\n    if (pass_year < 2003 and pass_year > 3000):\r\n        pass\r\n    else:\r\n        print(pass_year)\r\nelse:\r\n    print(\"NO\")"
+  },
+  {
+    "number": "4",
+    "question": "ConsecutiveFourSum(Niket's Method)(12102022)",
+    "solution": "n = int(input())\r\n\r\n#digit_list = []\r\n   \r\nresult = 0\r\nnum_1 = 0\r\n\r\nfor i in range(1,n//2):\r\n    if((i+3)<=n//2):\r\n        temp_sum = 4*i+6\r\n        if(temp_sum == n):\r\n            result = 1\r\n            num_1 = i\r\n            break\r\n        else:\r\n            result = 0\r\n        \r\nif(result==1):\r\n    print(1)\r\n    print(num_1)\r\nelse:\r\n    print(0)"
+  },
+  {
+    "number": "5",
+    "question": "ConsecutiveFourSum(Rohit's Method)(12102022).py]",
+    "solution": "n = int(input())\r\n\r\ndef sumOfConsecutiveNumbers(start,stop,step):\r\n    sum = ((stop*(stop+1))/2) - (((start-1)*(start))/2) \r\n    return sum\r\n\r\n#print(sumOfConsecutiveNumbers(3,6))\r\n\r\nres = 0\r\n\r\nfor i in range(1,n+1,4):\r\n    #print(i)\r\n    temp_sum = sumOfConsecutiveNumbers(1,i)\r\n    #print(temp_sum)\r\n\r\n    if(temp_sum == n):\r\n        print(1)\r\n        print(i)\r\n        break\r\n    else:\r\n        res = 1\r\n\r\nif(res == 1):\r\n    print(0)"
+  },
+  {
+    "number": "6",
+    "question": "DominantNumber(12102022)",
+    "solution": "m = int(input())\r\nn = int(input())\r\n\r\nsum_1 = 0\r\nsum_2 = 0\r\n\r\nfor i in range(2,m):\r\n    if(m%i==0):\r\n        sum_1 += i\r\n\r\nfor i in range(2,n):\r\n    if(n%i==0):\r\n        sum_2 += i\r\n\r\n#print(sum_1)\r\n#print(sum_2)\r\n\r\nif(sum_1 > sum_2):\r\n    print(m)\r\nelif(sum_1 < sum_2):\r\n    print(n)\r\nelse:\r\n    print(\"No dominance\")"
+  },
+  {
+    "number": "7",
+    "question": "encryption(08102022)",
+    "solution": "T = int(input())\r\n\r\nletters_Og = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']\r\n\r\n\r\n\r\ncount = 1\r\n\r\nencrypted_word = \"\"\r\n\r\nfor i in range(0,T):\r\n    \r\n    letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']\r\n    \r\n    word,keyword = input().split()\r\n    \r\n    U = []\r\n    \r\n    for j in keyword:\r\n        if(j in U):\r\n            pass\r\n        else:\r\n            U.append(j)\r\n    \r\n    for j in range(0,len(U)):\r\n        if(U[j] in letters):\r\n            letters.remove(U[j])\r\n        else:\r\n            pass\r\n        \r\n    ref_list = U+letters\r\n    \r\n    #print(ref_list)\r\n    \r\n    indices = []\r\n    \r\n    for j in word:\r\n        indices.append(letters_Og.index(j))\r\n    #print(indices)\r\n    \r\n    for i in range(0,len(indices)):\r\n        print(ref_list[indices[i]],end='')\r\n    print()"
+  },
+  {
+    "number": "8",
+    "question": "FibonacciMixedString(29112022)",
+    "solution": "S1 = input()\r\nS2 = input()\r\n\r\nn = int(input())\r\n\r\nL = []\r\n\r\nfor i in range(n-2):\r\n    LS1 = list(S1)  \r\n    LS2 = list(S2)\r\n\r\n    Odd_LS1 = LS1[::2]\r\n    Even_LS2 = LS2[1::2]\r\n\r\n\r\n    for i in range(len(Odd_LS1)):\r\n        if(Odd_LS1[i] != 'z'):\r\n            Odd_LS1[i] = chr(ord(Odd_LS1[i])+1)\r\n        else:\r\n            Odd_LS1[i] = 'a'\r\n    \r\n    for i in range(len(Even_LS2)):\r\n        if(Even_LS2[i] != 'z'):\r\n            Even_LS2[i] = chr(ord(Even_LS2[i])+1)\r\n        else:\r\n            Even_LS2[i] = 'a'\r\n\r\n    \r\n    #print(Odd_LS1)\r\n    #print(Even_LS2)\r\n\r\n    element = ''\r\n\r\n    Combined_L = [Odd_LS1,Even_LS2]\r\n\r\n\r\n    transpose = [[Combined_L[j][i]for j in range(len(Combined_L))] for i in range(len(Combined_L[0]))]\r\n\r\n    for i in transpose:\r\n        for j in i:\r\n            element+=j\r\n\r\n    \r\n    \r\n    S1 = S2\r\n    S2 = element\r\n    \r\n    L.append(element)\r\n    #print(element)\r\n        \r\nprint(L[len(L)-1])"
+  },
+  {
+    "number": "9",
+    "question": "FileSystem(140123)",
+    "solution": "def checkValidity(Action,edges,IDs):\r\n    source,destination,filename = Action.split()\r\n    \r\n    current_file_path = [1]\r\n    destination_path = [1]\r\n    \r\n    moving_file_ID = IDs[filename]\r\n    \r\n    #print(moving_file_ID)\r\n    \r\n    #print(source.split('/'))\r\n    \r\n    for i in source.split('/'):\r\n        if(i!=''):\r\n            current_file_path.append(IDs[i])\r\n    \r\n    #print(current_file_path)\r\n    \r\n    for i in destination.split('/'):\r\n        if(i!=''):\r\n            destination_path.append(IDs[i])\r\n    \r\n    #print(destination_path)\r\n    \r\n    final_directory = destination_path[len(destination_path)-1]\r\n    \r\n    #print(final_directory)\r\n    \r\n    nodes_in_final = []\r\n    \r\n    \r\n    for i in edges:\r\n        if(i[0]==final_directory):\r\n            nodes_in_final.append(i[1])\r\n    \r\n    #print(nodes_in_final)\r\n    \r\n    if moving_file_ID not in nodes_in_final:\r\n        print('yes')\r\n    else:\r\n        print('no')\r\n            \r\n            \r\n        \r\n    \r\n    \r\n    \r\n\r\nN = int(input())\r\nM = int(input())\r\n\r\nEdge_File_IDs = []\r\nFile_IDs = dict({})\r\n\r\nfor i in range(M):\r\n    id1,id2 = input().split()\r\n    Edge_File_IDs.append((int(id1),int(id2)))\r\n\r\n#print(Edge_File_IDs)\r\n\r\nfiles = [i for i in input().split()][:N]\r\n\r\nfor i in range(1,len(files)+1):\r\n    File_IDs.update({files[i-1]:i})\r\n    \r\n#print(File_IDs)\r\n\r\nQ = int(input())\r\n\r\nQueries = []\r\n\r\nfor i in range(Q):\r\n    query = input()\r\n    Queries.append(query)\r\n\r\n#print(Queries)\r\n\r\nfor i in Queries:\r\n    checkValidity(i,Edge_File_IDs,File_IDs)"
+  },
+  {
+    "number": "10",
+    "question": "HashNumber(22102022)",
+    "solution": "T = int(input())\r\n\r\n\r\nWord_List=[]\r\nHashed_Words = []\r\ncount_list = []\r\n\r\n\r\nfor i in range(0,T):\r\n    \r\n    L = int(input())\r\n    Word = input()\r\n    \r\n    \r\n    \r\n    if(len(Word) == L):\r\n        \r\n        Hashed_Word = \"\"\r\n    \r\n        \r\n    \r\n        for j in range(0,L):\r\n            if(j != (L-1)):\r\n                if(Word[j].lower()==Word[j+1].lower()):\r\n                    Word_List.append(Word[j])\r\n                    Word_List.append(\"#\")\r\n                else:\r\n                    Word_List.append(Word[j])\r\n            else:\r\n                Word_List.append(Word[j]+\" \")\r\n    \r\n        \r\n        for j in range(0,len(Word_List)):\r\n            Hashed_Word += Word_List[j]\r\n        #print(Hashed_Words)\r\n        \r\n        Hashed_Words.append(Hashed_Word)\r\n        #print(Hashed_Words)\r\n        \r\n        Ar = Hashed_Words[len(Hashed_Words)-1].split()\r\n        \r\n        #print(Ar)\r\n        \r\n        for j in range(0,len(Ar)):\r\n            count = 0\r\n            for k in Ar[j]:\r\n                if(k == \"#\"):\r\n                    count += 1\r\n            count_list.append(count)\r\n        #count_list.pop(0)\r\n        \r\n        for j in range(1,len(count_list)):\r\n            print(count_list[j])"
+  },
+  {
+    "number": "11",
+    "question": "LeviVsTitans(26102022)",
+    "solution": "Levi_Pos = int(input())\r\nMoves = int(input())\r\n\r\nDistance_Per_Move = list (map(int,input().split()))\r\n\r\n#print(Distance_Per_Move)\r\n\r\nBeast_Pos = int(input())\r\n\r\nFinal_Levi_Pos = Levi_Pos+sum(Distance_Per_Move)\r\n\r\n#print(Final_Levi_Pos)\r\nif(Final_Levi_Pos > Beast_Pos):\r\n    print(\"Jaw\")\r\nelif(Final_Levi_Pos < Beast_Pos):\r\n    print(\"Beast\")\r\nelse:\r\n    print(\"Levi\")"
+  },
+  {
+    "number": "12",
+    "question": "LuckyKids(05122022)",
+    "solution": "import copy\r\n\r\ndef transpose(Matrix):\r\n    t = [[Matrix[j][i]for j in range(len(Matrix))] for i in range(len(Matrix[0]))]\r\n    return t\r\n\r\ndef ChitTransition(Matrix,num,pi,qu):\r\n    new_M = copy.deepcopy(Matrix)\r\n    t = transpose(Matrix)\r\n    \r\n    if(num == pi):\r\n        for i in range(len(Matrix)):\r\n            for j in range(len(Matrix[i])):\r\n                if(Matrix[i][j] == num):\r\n                    if(qu in Matrix[i] or qu in t[j]):\r\n                        new_M[i][j] = qu\r\n                    \r\n    else:\r\n        for i in range(len(Matrix)):\r\n            for j in range(len(Matrix[i])):\r\n                if(Matrix[i][j] == num):\r\n                    if(pi in Matrix[i] or pi in t[j]):\r\n                        new_M[i][j] = pi\r\n                    \r\n    \r\n    return new_M\r\n            \r\n    \r\n\r\nm = int(input())\r\nn = int(input())\r\np = int(input())\r\nq = int(input())\r\n\r\nkids_m = []\r\nwinners = []\r\n\r\nfor i in range(m):\r\n    row = [int(i) for i in input().split()][:n]\r\n    kids_m.append(row)\r\n\r\nl = int(input())\r\n\r\nkids_m_t = ChitTransition(kids_m,l,p,q)\r\n\r\n#print(kids_m_t)\r\n\r\nfor i in range(len(kids_m_t)):\r\n    for j in range(len(kids_m_t[i])):\r\n        if(kids_m_t[i][j] == l):\r\n            winners.append([i+1,j+1])\r\n\r\nif(winners == []):\r\n    print('No winner')\r\nelse:\r\n    for i in winners:\r\n        print(i[0],i[1])"
+  },
+  {
+    "number": "13",
+    "question": "Rumbling(23102022)",
+    "solution": "N = int(input())\r\n\r\nList_Pair = []\r\n\r\ncount = 0\r\n\r\nif(N<10000):\r\n    for i in range(1,N+1):\r\n        for j in range(1,N+1):\r\n            Pair = [i,j]\r\n            #print(Pair)\r\n            List_Pair.append(Pair)\r\n    \r\n    print(List_Pair)\r\n    \r\n    for i in range(0,len(List_Pair)):\r\n        if((List_Pair[i][0]+List_Pair[i][1])%2 != 0):\r\n            count+=1\r\n    \r\n    print(count)"
+  },
+  {
+    "number": "14",
+    "question": "TimeInHeaven(13102022)",
+    "solution": "time_earth = input()\r\n\r\ntime_val_list = time_earth.split(\":\")\r\n\r\ntime_val = \"\"\r\n\r\nfor i in range(0,len(time_val_list)):\r\n    time_val += time_val_list[i]\r\n\r\n#print(time_val)\r\n\r\nL = time_val.split() \r\n#print(L)\r\n\r\ntime = L[0]\r\ntime_num = int(L[0])\r\n#suffix = L[1]\r\n\r\nif(time_num == 120000 ):\r\n    print(\"08:00:00 midnight\")\r\n    \r\nif(time_num>0 and time_num<=75959):\r\n    print(time[0:2]+\":\"+time[2:4]+\":\"+time[4:6]+\" A.M\")\r\n    \r\nif(time_num == 80000):\r\n    print(time[0:2]+\":\"+time[2:4]+\":\"+time[4:6]+\" midmorning\")\r\n\r\n\r\nif(time_num>80000 and time_num<=155959 and time_num!=120000):\r\n    \r\n    Ar =[]\r\n    for i in time[0:2]:\r\n        Ar.append(i)\r\n    \r\n    if(Ar[0] == \"0\"):\r\n        temp_num = int(Ar[1])\r\n        temp_num -= 8\r\n        print(temp_num)\r\n        print(\"0\"+str(temp_num)+\":\"+time[2:4]+\":\"+time[4:6]+\" B.M\")\r\n    else:\r\n        temp_num_1 = \"\"\r\n        temp_num = 0 \r\n        for i in range(0,len(Ar)):\r\n            temp_num_1 += Ar[i]\r\n        temp_num = int(temp_num_1) \r\n        temp_num -= 8\r\n        print(\"0\"+str(temp_num)+\":\"+time[2:4]+\":\"+time[4:6]+\" B.M\")\r\n\r\nif(time_num == 160000):\r\n    print(\"08:00:00 midevening\")\r\n    \r\nif(time_num>160000 and time_num<=235959 and time_num!=120000):\r\n    Ar =[]\r\n    for i in time[0:2]:\r\n        Ar.append(i)\r\n    \r\n    if(Ar[0] != \"0\"):\r\n        temp_num = int(Ar[1])\r\n        temp_num -= 8\r\n        print(\"0\"+str(temp_num)+\":\"+time[2:4]+\":\"+time[4:6]+\" C.M\")\r\n    else:\r\n        temp_num_1 = \"\"\r\n        temp_num = 0 \r\n        for i in range(0,len(Ar)):\r\n            temp_num_1 += Ar[i]\r\n        temp_num = int(temp_num_1) \r\n        temp_num -= 8\r\n        print(str(temp_num)+\":\"+time[2:4]+\":\"+time[4:6]+\" C.M\")"
+  },
+  {
+    "number": "15",
+    "question": "WaysToRectangle(14102022)",
+    "solution": "n = int(input())\r\n\r\nU_List = []\r\nU_List_Final = []\r\n\r\nfor i in range(1,n//2):\r\n    tup = ()\r\n    if(n%i == 0):\r\n        tup += (i,n//i)\r\n        U_List.append(tup)\r\n\r\n#print(U_List)\r\n\r\nfor i in range(0,(len(U_List)//2)+1):\r\n    U_List_Final.append(U_List[i])\r\n\r\nprint(len(U_List_Final))\r\n\r\nfor i in U_List_Final:\r\n    print(i[0],i[1])"
+  }
+]
