@@ -34,7 +34,7 @@ const questions = [
   "Calculate the number of unique rectangles that can be formed given a certain number of unit squares. For a given number of squares, determine how many distinct rectangles can be constructed. The rectangles should be counted based on their possible dimensions.",
 ];
 
-const explanation = [String.raw("")];
+const explanation = [];
 
 function App() {
   return (

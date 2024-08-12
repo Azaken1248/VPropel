@@ -8,16 +8,19 @@ interface QuestionProps {
   question: string;
   question_content: string;
   solution: string;
-  explanation: string;
+  initialExplanation: string;
 }
 
 const Question = ({
   question,
   question_content,
   solution,
-  explanation,
+  initialExplanation,
 }: QuestionProps) => {
   const [copied, setCopied] = useState<boolean>(false);
+  const [explanations, setExplanations] = useState<string[]>([
+    initialExplanation,
+  ]);
 
   const handleCopyCode = () => {
     navigator.clipboard
@@ -29,6 +32,13 @@ const Question = ({
       .catch((err) => {
         console.error("Failed to copy code: ", err);
       });
+  };
+
+  const handleExplanationChange = (index: number, content: string) => {
+    const updatedExplanations = [...explanations];
+    updatedExplanations[index] = content;
+    console.log(updatedExplanations);
+    setExplanations(updatedExplanations);
   };
 
   return (
@@ -50,9 +60,18 @@ const Question = ({
       </div>
       <h3>Explanation</h3>
       <div>
-        <p>
-          <i>{explanation}</i>
-        </p>
+        {explanations.map((exp, index) => (
+          <p
+            key={index}
+            contentEditable
+            suppressContentEditableWarning
+            onBlur={(e) =>
+              handleExplanationChange(index, e.currentTarget.textContent || "")
+            }
+          >
+            <i>{exp}</i>
+          </p>
+        ))}
       </div>
     </div>
   );
