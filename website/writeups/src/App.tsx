@@ -34,8 +34,6 @@ const questions = [
   "Calculate the number of unique rectangles that can be formed given a certain number of unit squares. For a given number of squares, determine how many distinct rectangles can be constructed. The rectangles should be counted based on their possible dimensions.",
 ];
 
-const explanation = [];
-
 function App() {
   return (
     <>
@@ -45,8 +43,6 @@ function App() {
           question={problem.question}
           question_content={questions[index]}
           solution={problem.solution}
-          output={"CLICK ON RUN TO GET THE OUTPUT"}
-          explanation={explanation[index]}
         />
       ))}
     </>

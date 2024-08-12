@@ -8,19 +8,11 @@ interface QuestionProps {
   question: string;
   question_content: string;
   solution: string;
-  initialExplanation: string;
 }
 
-const Question = ({
-  question,
-  question_content,
-  solution,
-  initialExplanation,
-}: QuestionProps) => {
+const Question = ({ question, question_content, solution }: QuestionProps) => {
   const [copied, setCopied] = useState<boolean>(false);
-  const [explanations, setExplanations] = useState<string[]>([
-    initialExplanation,
-  ]);
+  const [explanations, setExplanations] = useState<string[]>([]);
 
   const handleCopyCode = () => {
     navigator.clipboard
